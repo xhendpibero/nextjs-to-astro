@@ -54,9 +54,7 @@ const PokemonList = ({ pokemon }: { pokemon: Pokemon[] }) => {
     const topByType: Record<string, Pokemon[]> = {};
     for (const p of pokemon) {
       for (const t of p.type) {
-        if (!topByType[t]) {
-          topByType[t] = [];
-        }
+        if (!topByType[t]) topByType[t] = [];
         topByType[t].push(p);
       }
     }
@@ -81,7 +79,7 @@ const PokemonList = ({ pokemon }: { pokemon: Pokemon[] }) => {
         <div key={type.type}>
           <h2>{type.type}</h2>
           <PokemonTable
-            pokemon={type.pokemon.slice(0, 1)}
+            pokemon={type.pokemon.slice(0, 12)}
             overallRankings={overallRankings}
           />
         </div>
